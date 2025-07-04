@@ -1,0 +1,48 @@
+# === Logs ===
+logs/
+*.log
+*.log.*
+
+# === OS Specific ===
+.DS_Store
+Thumbs.db
+
+# === Editor Specific ===
+.idea/
+.vscode/
+*.swp
+
+# === Frontend (client) ===
+client/node_modules/
+client/dist/
+client/.env
+client/.env.local
+
+# Vite
+client/.vite/
+
+# CRA
+client/build/
+
+# === Backend (server) ===
+server/node_modules/
+server/dist/
+server/.env
+server/.env.local
+
+# NestJS specific
+server/.webpack/
+
+# === Docker ===
+*.local
+docker-compose.override.yml
+
+# === Testing ===
+coverage/
+*.lcov
+jest-html-reporters-*.html
+
+# === Misc ===
+*.tgz
+*.zip
+*.gz
