@@ -8,7 +8,7 @@ A complete authentication application with user sign up, sign in, and a protecte
 - User login with JWT authentication
 - Protected routes
 - Modern React with TypeScript
-- Express backend with MongoDB
+- NestJS backend with MongoDB
 - Docker containerization
 
 ## Tech Stack
@@ -21,11 +21,10 @@ A complete authentication application with user sign up, sign in, and a protecte
 - Axios for API requests
 
 **Backend:**
-- Node.js with Express
-- TypeScript
-- MongoDB with Mongoose
+- NestJS with TypeScript
+- MongoDB with TypeORM
 - JWT for authentication
-- Express Validator for input validation
+- Class Validator for input validation
 
 ## Getting Started
 

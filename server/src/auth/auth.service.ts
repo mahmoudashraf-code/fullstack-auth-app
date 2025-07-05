@@ -1,6 +1,7 @@
 import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import { ObjectId } from 'mongodb';
 import { SignupDto } from './dto/signup.dto';
 import { SigninDto } from './dto/signin.dto';
 import { UsersService } from 'src/users/users.service';
@@ -76,6 +77,24 @@ export class AuthService {
                 name: user.name,
             },
             token,
+        };
+    }
+
+    async getCurrentUser(userId: string) {
+        const user = await this.usersService.userRepository.findOneBy({
+            _id: new ObjectId(userId),
+        });
+
+        if (!user) {
+            throw new UnauthorizedException('User not found');
+        }
+
+        return {
+            user: {
+                id: user._id,
+                email: user.email,
+                name: user.name,
+            },
         };
     }
 }
