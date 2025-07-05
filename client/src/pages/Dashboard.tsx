@@ -21,7 +21,7 @@ export default function Dashboard() {
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-6">
             <p className="text-gray-700">
-              You have successfully logged into the protected area of the application.
+              You have successfully logged
             </p>
           </div>
         </div>
