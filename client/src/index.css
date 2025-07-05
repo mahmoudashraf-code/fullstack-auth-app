@@ -7,22 +7,22 @@ body {
 }
 
 .form-input {
-  @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base;
 }
 
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors;
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors min-h-[44px] flex items-center justify-center;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition-colors;
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded transition-colors min-h-[44px] flex items-center justify-center;
 }
 
 .form-error {
   @apply text-red-500 text-sm mt-1;
 }
 
-/* New animations for enhanced UI */
+/* Enhanced animations for better UX */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -39,4 +39,30 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive touch targets for mobile */
+@media (max-width: 768px) {
+  input, button, select, textarea {
+    min-height: 44px;
+  }
+  
+  .form-input {
+    @apply px-3 py-3;
+  }
+}
+
+/* Improved focus styles for accessibility */
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  @apply outline-none ring-2 ring-offset-2;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  h1 { @apply text-xl; }
+  h2 { @apply text-lg; }
+  h3 { @apply text-base; }
 }

@@ -1,0 +1,7 @@
+#mongo db connection string
+MONGODB_URI=mongodb://localhost:27017/fullstack-auth-app
+JWT_SECRET=super-secret-jwt-key
+JWT_EXPIRES_IN=7d
+
+# Logging configuration
+LOG_LEVEL=info

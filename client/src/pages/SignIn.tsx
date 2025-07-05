@@ -73,31 +73,31 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Left panel - Decorative/branding side */}
-      <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-800 p-12 text-white flex-col justify-between">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-800 p-6 xl:p-12 text-white flex-col justify-between">
         <div>
-          <h1 className="text-4xl font-bold mb-2">Welcome to EduLearn!</h1>
-          <p className="text-blue-100 text-xl">Continue your learning journey with us.</p>
+          <h1 className="text-3xl xl:text-4xl font-bold mb-2">Welcome to EduLearn!</h1>
+          <p className="text-blue-100 text-lg xl:text-xl">Continue your learning journey with us.</p>
         </div>
         
-        <div className="space-y-8">
+        <div className="space-y-6 xl:space-y-8">
           {/* Testimonial or feature highlight */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-            <p className="italic text-blue-100 mb-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 xl:p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
+            <p className="italic text-blue-100 mb-4 text-sm xl:text-base">
               "This e-learning platform has transformed how I study. The interactive courses and progress tracking keep me motivated!"
             </p>
             <div className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-blue-300 flex items-center justify-center text-blue-800 font-bold">AS</div>
+              <div className="h-8 w-8 xl:h-10 xl:w-10 rounded-full bg-blue-300 flex items-center justify-center text-blue-800 font-bold text-sm xl:text-base">AS</div>
               <div className="ml-3">
-                <p className="font-medium">Alex Smith</p>
-                <p className="text-sm text-blue-200">Computer Science Student</p>
+                <p className="font-medium text-sm xl:text-base">Alex Smith</p>
+                <p className="text-xs xl:text-sm text-blue-200">Computer Science Student</p>
               </div>
             </div>
           </div>
           
           {/* App features */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 xl:gap-4">
             <div className="flex items-start space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors duration-200">
               <BookIcon />
               <p className="text-sm">Interactive Courses</p>
@@ -123,17 +123,23 @@ export default function SignIn() {
       </div>
 
       {/* Right panel - Sign in form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 sm:p-8 md:p-12">
-        <div className="w-full max-w-md space-y-8 animate-fadeIn">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-8 xl:p-12 min-h-screen lg:min-h-0">
+        <div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8 animate-fadeIn">
           {/* Header */}
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
             <p className="mt-2 text-sm text-gray-600">
               New student?{' '}
               <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
                 Create your account now
               </Link>
             </p>
+          </div>
+
+          {/* Mobile banner for branding */}
+          <div className="lg:hidden bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-4 text-white text-center">
+            <h3 className="font-bold text-lg">Welcome to EduLearn!</h3>
+            <p className="text-blue-100 text-sm mt-1">Your learning journey continues here</p>
           </div>
 
           {/* Error message */}
@@ -149,8 +155,8 @@ export default function SignIn() {
           )}
 
           {/* Form */}
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
-            <div className="space-y-5">
+          <form className="mt-6 sm:mt-8 space-y-5 sm:space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <div className="space-y-4 sm:space-y-5">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Student email
@@ -164,9 +170,9 @@ export default function SignIn() {
                     type="email"
                     autoComplete="email"
                     {...register('email')}
-                    className={`pl-10 block w-full rounded-lg border ${
+                    className={`!pl-10 block w-full rounded-lg border ${
                       errors.email ? 'border-red-500 text-red-900 placeholder-red-300' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all p-3`}
+                    } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all p-3 sm:p-3 text-base`}
                     placeholder="you@example.com"
                   />
                 </div>
@@ -191,9 +197,9 @@ export default function SignIn() {
                     type="password"
                     autoComplete="current-password"
                     {...register('password')}
-                    className={`pl-10 block w-full rounded-lg border ${
+                    className={`!pl-10 block w-full rounded-lg border ${
                       errors.password ? 'border-red-500 text-red-900 placeholder-red-300' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all p-3`}
+                    } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all p-3 sm:p-3 text-base`}
                   />
                 </div>
                 {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password.message}</p>}
@@ -218,7 +224,7 @@ export default function SignIn() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-150 ease-in-out shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative w-full flex justify-center py-3 sm:py-3 px-4 border border-transparent text-sm sm:text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-150 ease-in-out shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] min-h-[48px]"
               >
                 {isSubmitting ? (
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -236,7 +242,7 @@ export default function SignIn() {
               </button>
             </div>
 
-            <div className="relative mt-8">
+            <div className="relative mt-6 sm:mt-8">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
               </div>
@@ -245,10 +251,10 @@ export default function SignIn() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 sm:mt-6">
               <button
                 type="button"
-                className="py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center justify-center transition-all duration-200 hover:shadow-md transform hover:translate-y-[-2px]"
+                className="py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center justify-center transition-all duration-200 hover:shadow-md transform hover:translate-y-[-2px] min-h-[48px]"
               >
                 <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" width="24" height="24">
                   <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
@@ -262,7 +268,7 @@ export default function SignIn() {
               </button>
               <button
                 type="button"
-                className="py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center justify-center transition-all duration-200 hover:shadow-md transform hover:translate-y-[-2px]"
+                className="py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center justify-center transition-all duration-200 hover:shadow-md transform hover:translate-y-[-2px] min-h-[48px]"
               >
                 <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 2.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clipRule="evenodd"/>
