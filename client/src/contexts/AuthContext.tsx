@@ -10,6 +10,8 @@ interface AuthContextType extends AuthState {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<AuthState>({
     user: null,
@@ -26,7 +28,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
 
       try {
-        const response = await axios.get('/api/auth/me', {
+        const response = await axios.get(`${API_BASE_URL}/api/auth/me`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -48,7 +50,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (data: SignUpData) => {
     try {
-      const response = await axios.post('/api/auth/register', data);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, data);
       const { user, token } = response.data;
 
       localStorage.setItem('token', token);
@@ -65,7 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (data: SignInData) => {
     try {
-      const response = await axios.post('/api/auth/login', data);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, data);
       const { user, token } = response.data;
 
       localStorage.setItem('token', token);
